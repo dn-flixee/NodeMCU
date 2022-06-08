@@ -51,7 +51,7 @@ const int trigPin = 10;         // Ultrasonic Triger Pins
 const int echoPin = 9;          // Ultrasonic Echo Pins
 const float error = 0.5;
 unsigned long Duration = 0;
-float currentDistanceCm, previousDistanceCm = 0;
+unsigned long currentDistanceCm, previousDistanceCm = 300000;
 const long diff  = 300000;
 
 void setup()
