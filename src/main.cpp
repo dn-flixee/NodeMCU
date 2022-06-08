@@ -52,6 +52,7 @@ const int echoPin = 9;          // Ultrasonic Echo Pins
 const float error = 0.5;
 unsigned long Duration = 0;
 float currentDistanceCm, previousDistanceCm = 0;
+const long diff  = 300000;
 
 void setup()
 {
@@ -101,7 +102,7 @@ void loop()
   Blynk.run();
   cal_dist();
 
-  if(((previousDistanceCm - error) > currentDistanceCm) || ((previousDistanceCm + error) < currentDistanceCm)){
+  if(currentDistanceCm - previousDistanceCm >= diff){
     previousDistanceCm = currentDistanceCm;
     Serial.print("Distance (cm): ");
     Serial.println(currentDistanceCm);
